@@ -1,19 +1,17 @@
 // src/App.jsx
 import React from "react";
+import AppRouter from "@/router/index";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { Navbar } from "@/components/ui/navbar/Navbar";
+import { Footer } from "@/components/ui/footer/Footer";
 
 export function App() {
   return (
-    <AuthProvider>
-      <div className="min-h-screen">
-        <Navbar />
-        <main className="p-4">
-          <h1 className="text-2xl font-bold mb-4">首頁內容</h1>
-          <p>這裡是你的首頁。</p>
-        </main>
-      </div>
-    </AuthProvider>
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <AppRouter />
+      <Footer />
+    </div>
   );
 }
 
