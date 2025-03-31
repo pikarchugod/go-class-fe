@@ -1,6 +1,6 @@
 // src/components/home/CoursesRecommend.jsx
 import React from "react";
-import { CourseCard } from "./CourseCard";
+import CourseCard from "@/components/ui/home/CourseCard";
 
 import slide1 from "@/assets/images/hero/slide1.png";
 import slide2 from "@/assets/images/hero/slide2.png";

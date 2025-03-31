@@ -59,7 +59,7 @@ export function AuthProvider({ children }) {
   // 取得使用者資料
   async function fetchUser() {
     try {
-      const res = await axiosInstance.get("/user");
+      const res = await axiosInstance.get("/user-info");
       setUser(res.data);
       setIsAuthenticated(true);
       return res.data;

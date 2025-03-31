@@ -1,6 +1,6 @@
+// src/components/ui/navbar/SearchBarContainer.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// 子元件
 import { DesktopSearchBar } from "./DesktopSearchBar";
 import { MobileSearchTrigger } from "./MobileSearchTrigger";
 import { MobileSearchModal } from "./MobileSearchModal";
@@ -10,25 +10,26 @@ export function SearchBarContainer({ placeholder = "搜尋你想要的課程", o
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
   const navigate = useNavigate();
 
-  // 觸發搜尋時
   const handleSearchSubmit = () => {
-    if (!keyword.trim()) return; // 空字串就不處理
+    // 若輸入為空，就不處理
+    if (!keyword.trim()) return;
+
     if (onSearch) {
-      // 若父層有客製搜尋行為
+      // 如果父層傳入自訂 onSearch，就用父層的方法
       onSearch(keyword);
     } else {
-      // 預設行為：導向 /courses/search?keyword=xxx
-      navigate(`/courses/search?keyword=${encodeURIComponent(keyword)}`);
+      // 否則預設行為：跳轉到 /courses?search=xxx
+      navigate(`/courses?search=${encodeURIComponent(keyword)}`);
     }
-    // 清空關鍵字
+
+    // 清空輸入
     setKeyword("");
-    // 關閉手機版視窗
     setIsMobileSearchOpen(false);
   };
 
   return (
     <div className="flex items-center">
-      {/* 桌機版 (>= xl) */}
+      {/* 桌機版輸入框 */}
       <DesktopSearchBar
         placeholder={placeholder}
         keyword={keyword}
@@ -36,10 +37,8 @@ export function SearchBarContainer({ placeholder = "搜尋你想要的課程", o
         onSearchSubmit={handleSearchSubmit}
       />
 
-      {/* 手機版 (< xl) 放大鏡圖示 */}
+      {/* 手機版放大鏡 + 全螢幕搜尋 */}
       <MobileSearchTrigger onOpen={() => setIsMobileSearchOpen(true)} />
-
-      {/* 手機版 全螢幕搜尋視窗 */}
       <MobileSearchModal
         isOpen={isMobileSearchOpen}
         onClose={() => setIsMobileSearchOpen(false)}
