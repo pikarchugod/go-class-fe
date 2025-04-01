@@ -4,7 +4,7 @@ import { TestPage } from "@/pages/TestPage";
 import HomePage from "@/pages/HomePage";
 import CourseDetailPage from "@/pages/CourseDetailPage";
 import CoursesPage from "@/pages/CoursesPage"; // 新增課程列表頁
-
+import CartPage from "@/pages/CartPage"; // 新增課程列表頁
 
 
 function AppRouter() {
