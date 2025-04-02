@@ -6,6 +6,7 @@ import CourseDetailPage from "@/pages/CourseDetailPage";
 import CoursesPage from "@/pages/CoursesPage"; // 新增課程列表頁
 import CartPage from "@/pages/CartPage"; // 新增課程列表頁
 import WatchPage from "@/pages/WatchPage"; // 新增 WatchPage
+import StudentDashboard from "@/pages/StudentDashboard";
 
 
 function AppRouter() {
@@ -16,6 +17,7 @@ function AppRouter() {
       <Route path="/courses/:id" element={<CourseDetailPage />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/courses/:id/watch" element={<WatchPage />} />
+      <Route path="/dashboard" element={<StudentDashboard />} />
     </Routes>
   );
 }
